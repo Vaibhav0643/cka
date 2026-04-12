@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvpod
+spec:
+  containers:
+    - name: myfrontend
+      image: quay.io/anshuk6469/nginx
+      volumeMounts:
+      - mountPath: "/data"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: myclaim-hostpath

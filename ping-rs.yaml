@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    env: test 
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 5
+  selector:
+    matchLabels:
+      env: test
+    matchExpressions:
+    - key: tier
+      operator: In
+      values: 
+      - frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+        env: test
+    spec:
+      containers:
+      - name: nginx
+        image: quay.io/anshuk6469/nginxdemo
+        securityContext:
+          capabilities:
+            add: ["NET_RAW"]
+

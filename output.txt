@@ -1,0 +1,5 @@
+nslookup: can't resolve '(null)': Name does not resolve
+
+Name:      my-cip.default.svc.cluster.local
+Address 1: 10.103.143.130 my-cip.default.svc.cluster.local
+pod "test-dns" deleted

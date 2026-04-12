@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-pod
+spec:
+  volumes:
+    - name: emptydir-storage
+      emptyDir: 
+        sizeLimit: 500Mi
+  containers:
+    - name: task-pv-container
+      image: quay.io/anshuk6469/nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/database"
+          name: emptydir-storage
+    - name: mysql
+      image: quay.io/anshuk6469/mysql
+      env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: "redhat"
+      volumeMounts:
+        - mountPath: "/sql"
+          name: emptydir-storage
+
+
+
+

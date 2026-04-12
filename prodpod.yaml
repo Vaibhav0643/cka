@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prod
+  labels:
+    env: prod
+spec:
+  containers:
+  - name: nginx
+    image: quay.io/anshuk6469/nginxdemo
+    ports:
+    - containerPort: 80
+    securityContext:
+      capabilities:
+        add: ["NET_RAW"]
+
