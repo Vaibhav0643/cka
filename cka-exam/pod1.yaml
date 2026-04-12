@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo
+  namespace: app-team1
+spec:
+  serviceAccountName: cid-token
+  restartPolicy: Never
+  containers:
+  - name: demo
+    image: bitnami/kubectl
+    command: ["sleep"]
+    args: ["3600"]   # sleeps for 1 hour
