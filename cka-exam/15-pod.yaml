@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: legacy-app
+spec:
+  containers:
+    - name: app
+      image: quay.io/anshuk6469/nginxdemo
+      command: ["/bin/sh"]
+      args:
+      - -c
+      - |
+        touch /var/log/nginx/error.log
+        while true; do
+          echo "$(date) INFO log message" >> /var/log/nginx/error.log
+          sleep 5
+        done
+      volumeMounts:
+        - name: logs
+          mountPath: /var/log/nginx/
+    - name: sidecar
+      image: quay.io/anshuk6469/nginxdemo
+      command: ["/bin/sh"]
+      args: ["-c","tail -n+1 -F /var/log/nginx/error.log"]
+      volumeMounts:
+        - name: logs
+          mountPath: /var/log/nginx/
+  volumes:
+    - name: logs
+      emptyDir: {}
