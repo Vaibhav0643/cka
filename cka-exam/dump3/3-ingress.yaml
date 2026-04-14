@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: luau
+spec:
+  ingressClassName: nginx-example
+  rules:
+  - http:
+      paths:
+      - path: /aloha
+        pathType: Prefix
+        backend:
+          service:
+            name: aloha
+            port:
+              number: 54321
+

@@ -6,7 +6,7 @@ spec:
   volumes:
     - name: task-pv-storage
       persistentVolumeClaim:
-        claimName: task-pvc
+        claimName: rwopvc
   containers:
     - name: task-pv-container
       image: nginx
@@ -14,6 +14,8 @@ spec:
         - containerPort: 80
           name: "http-server"
       volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
+        - mountPath: "/var/www/html"
           name: task-pv-storage
+
+
 
