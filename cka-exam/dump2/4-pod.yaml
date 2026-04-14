@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: super-pod
+  name: super-pod
+spec:
+  containers:
+  - command:
+    - sleep
+    - "4800"
+    image: busybox:1.28
+    name: super-pod
+    securityContext:
+      capabilities:
+        add: [ "SYS_TIME"]
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
