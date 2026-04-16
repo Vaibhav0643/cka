@@ -1,0 +1,6 @@
+replicas: 3
+image:
+  repository: busybox
+  tag: latest
+  pullPolicy: IfNotPresent
+appMessage: "Payments Service"
