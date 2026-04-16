@@ -1,0 +1,21 @@
+To create:
+kubectl create ns efk
+kubectl rollout restart deployment coredns -n kube-system (Sometimes error comes related to DNS to avoid error we use this command)
+kubectl create -f .
+
+To verify:
+kubectl get pods -n efk
+
+To access:
+kubectl get svc -n efk (Check and Open Cluster IP of Kibana service with port nubmer 5601)
+
+Once it's opened then click on explore on my own -> left side click on discover -> Create on create data view to Kibana -> 
+    Name: efk-k8s
+    Index Pattern: logstash-*
+    Save
+
+For testing:
+kubectl create deployment hello --image=quay.io/gauravkumar9130/nginx --replicas=2
+
+Now go to Kibana console -> left side click on discover -> left side under fields click on logs (+ sign) -> then we will see that there is a container created with named hello (If not visible then refresh then it will show)
+
