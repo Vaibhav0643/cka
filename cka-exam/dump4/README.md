@@ -1,4 +1,3 @@
-```markdown
 # CKA Dump Solutions (Updated Syllabus)
 
 This repository contains **solutions to CKA (Certified Kubernetes Administrator) practice questions** based on the **new syllabus**, which includes topics such as:
@@ -22,11 +21,10 @@ The questions are based on the YouTube video:
 ## Repository Structure
 
 ```
-
 cka-exam/
 │
-├── /dump4              # Folder containing solution files
-├── README.md           # This file
+├── dump4/           # Folder containing solution files
+├── README.md        # This file
 
 ````
 
@@ -35,7 +33,7 @@ cka-exam/
 1. Clone the repository:
    ```bash
    git clone <your-repo-url>
-   cd dump4
+   cd cka-exam/dump4
 ````
 
 2. Browse the `dump4/` folder to review individual question solutions.
