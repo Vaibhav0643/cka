@@ -25,7 +25,7 @@ cka-exam/
    ```bash
    git clone <your-repo-url>
    cd dump3
-```
+   ```
 
 2. Browse the `dump3/` folder to review individual question solutions.
 
