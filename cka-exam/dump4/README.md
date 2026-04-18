@@ -26,7 +26,7 @@ cka-exam/
 ├── dump4/           # Folder containing solution files
 ├── README.md        # This file
 
-````
+```
 
 ## How to Use
 
@@ -34,7 +34,7 @@ cka-exam/
    ```bash
    git clone <your-repo-url>
    cd cka-exam/dump4
-````
+```
 
 2. Browse the `dump4/` folder to review individual question solutions.
 

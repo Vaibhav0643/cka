@@ -1,4 +1,3 @@
-```markdown
 # CKA Dump Solutions
 
 This repository contains solutions to the CKA (Certified Kubernetes Administrator) practice questions. The questions used here were taken from a publicly available YouTube video.
@@ -13,13 +12,12 @@ The questions are based on the YouTube video:
 ## Repository Structure
 
 ```
-
 cka-exam/
 │
 ├── /dump3              # Folder containing solution files
 ├── README.md           # This file
 
-````
+```
 
 ## How to Use
 
@@ -27,7 +25,7 @@ cka-exam/
    ```bash
    git clone <your-repo-url>
    cd dump3
-````
+```
 
 2. Browse the `dump3/` folder to review individual question solutions.
 
