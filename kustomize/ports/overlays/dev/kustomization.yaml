@@ -1,0 +1,34 @@
+resources:
+  - ../../base
+
+patches:
+- patch: |-                               # StrategicMerge Patching
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: kustomize
+      template:
+        metadata:
+          labels:
+            app: kustomize
+
+- path: replicas.yaml                      # Using StrategicMerge patching  
+
+- patch: |-                                # Using Json6902 patching
+    - op: replace
+      path: /spec/template/spec/containers/0/ports/0/containerPort
+      value: 8080
+  target:
+    kind: Deployment
+      #    labelSelector: "app=nginx"     # Select resources which have label app=nginx
+    name: nginx
+ 
+- path: limits.yaml                       # Using Json6902 patching
+  target: 
+    kind: Deployment
+    name: apache-deployment

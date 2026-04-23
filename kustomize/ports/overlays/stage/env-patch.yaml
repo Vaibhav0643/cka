@@ -1,0 +1,5 @@
+- op: add
+  path: /spec/template/spec/containers/0/env                 # env/-: This means "append to the end." of the env array. given the env array should already exist. That means their should be one env present on the container
+  value:
+    - name: APP_MODE
+      value: "STAGING"

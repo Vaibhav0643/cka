@@ -1,0 +1,3 @@
+- op: add
+  path: /spec/template/spec/resources/limits/cpu    # Can create the target field (cpu). Given resources and limits field should already exist.
+  value: 400m

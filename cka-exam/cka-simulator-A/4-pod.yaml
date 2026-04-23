@@ -1,0 +1,17 @@
+# To mimic the envionment for the question-4, this file create pod with resource limits and requests.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-limit
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      limits:
+        cpu: "2"
+        memory: "1Gi"
+      requests:
+        cpu: "1"
+        memory: "500Mi"
+

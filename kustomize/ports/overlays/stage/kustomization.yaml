@@ -1,0 +1,36 @@
+resources:
+  - ../../base
+
+namePrefix: staging-
+  #commonLabels:                  # Depreceted. Add labels and Automatically inject corresponding selectors. 
+  #  env: staging
+  #  team: platform
+
+labels:                           # A field that allows adding labels without also automatically injecting corresponding selectors. 
+  - pairs:
+      env: staging
+      team: platform
+#    includeSelectors: true 
+
+
+# Changing the Container Image
+images:
+  - name: httpd        # Matches the image name in base
+    newName: httpd
+    newTag: 2.4.51-alpine
+
+# Resource Scaling
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: apache-deployment
+      spec:
+        replicas: 5
+
+# Adding an Env Var
+  - path: env-patch.yaml
+    target:
+      kind: Deployment
+        #      name: apache-deployment               # Removing 'name' means it applies to ALL Deployments found in resources
